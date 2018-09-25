@@ -13,18 +13,24 @@ npm install --save react-scrollmagic
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react';
+import { SMController, SMScene } from 'react-scrollmagic';
 
-import MyComponent from 'react-scrollmagic'
-
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
+const Sticky = () => (
+  <div>
+    <SMController>
+      <SMScene duration={600} pin={true}>
+        <div>Sticky Example</div>
+      </SMScene>
+    </SMController>
+  </div>
+);
 ```
+
+More examples:
+
+https://github.com/bitworking/react-scrollmagic/tree/master/example/src/components/ScrollMagicExamples
+
 
 ## License
 
