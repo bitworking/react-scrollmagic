@@ -1,7 +1,14 @@
-import ExampleComponent from './'
+import SMController from './';
+import SMScene from './';
 
-describe('ExampleComponent', () => {
+describe('SMController', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(SMController).toBeTruthy()
   })
-})
+});
+
+describe('SMScene', () => {
+  it('is truthy', () => {
+    expect(SMScene).toBeTruthy()
+  })
+});
