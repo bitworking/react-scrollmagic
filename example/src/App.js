@@ -27,7 +27,7 @@ const Home = () => (
 
 const App = () => (
   <AppStyled>
-    <Router>
+    <Router basename="/react-scrollmagic">
       <div>
         <nav>
           <ul>

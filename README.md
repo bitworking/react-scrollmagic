@@ -27,10 +27,17 @@ const Sticky = () => (
 );
 ```
 
-More examples:
+Examples live demo:
+
+https://bitworking.github.io/react-scrollmagic/
+
+Examples source:
 
 https://github.com/bitworking/react-scrollmagic/tree/master/example/src/components/ScrollMagicExamples
 
+This project was bootstrapped with:
+
+https://github.com/transitive-bullshit/create-react-library
 
 ## License
 
