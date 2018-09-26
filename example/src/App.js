@@ -13,6 +13,7 @@ import SplitText from './components/ScrollMagicExamples/SplitText';
 import List from './components/ScrollMagicExamples/List';
 import Svg from './components/ScrollMagicExamples/Svg';
 import Parallax from './components/ScrollMagicExamples/Parallax';
+import Components from './components/ScrollMagicExamples/Components';
 
 const AppStyled = styled.div`
   nav {
@@ -64,6 +65,9 @@ const App = () => (
             <li>
               <Link to="/parallax">Parallax</Link>
             </li>
+            <li>
+              <Link to="/components">Components</Link>
+            </li>
           </ul>
         </nav>
         
@@ -78,6 +82,7 @@ const App = () => (
         <Route path="/list" component={List} />
         <Route path="/svg" component={Svg} />
         <Route path="/parallax" component={Parallax} />
+        <Route path="/components" component={Components} />
       </div>
     </Router>
   </AppStyled>

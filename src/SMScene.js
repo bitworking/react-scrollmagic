@@ -257,9 +257,35 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
         children = children(event, progress);
       }
 
-      childrenCloned = React.cloneElement(React.Children.only(children), {
-        ref: this.ref
-      });
+      // only one root child component
+      children = React.Children.only(children);
+
+      // console.log(children, children.props.children);
+
+      let ref = null;
+
+      // HTML tag
+      if (typeof children.type === 'string') {
+        ref = { ref: this.ref };
+      }
+      // Forwarding Refs
+      else if (children.type.$$typeof && children.type.$$typeof.toString() === 'Symbol(react.forward_ref)') {
+        ref = { ref: this.ref };
+      }
+      // StyledComponent
+      else if (children.type.name === 'StyledComponent') {
+        ref = { innerRef: this.ref };
+      }
+      // Stateful Component
+      else if (children.type.prototype && children.type.prototype.isReactComponent) {
+        // https://github.com/facebook/react/issues/11401#issuecomment-340543801
+        throw new Error('Stateful components not yet supported by SMScene. Use a HTML wrapper.');
+      }
+      else {        
+        throw new Error('Stateless components not yet supported by SMScene. Use a HTML wrapper.');
+      }
+
+      childrenCloned = React.cloneElement(children, ref);
     }
 
     return (
