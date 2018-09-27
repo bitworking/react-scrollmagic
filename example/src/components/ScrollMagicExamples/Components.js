@@ -44,17 +44,6 @@ const Components = () => (
       <SMScene duration={600} pin={true}>
         <StyledDiv>Styled Component</StyledDiv>
       </SMScene>
-      {/*
-      <SMScene duration={600} pin={true}>
-        <Stateless />
-      </SMScene>
-      <SMScene duration={600} pin={true}>
-        <StatelessFragment />
-      </SMScene>
-      <SMScene duration={600} pin={true}>
-        <Stateful />
-      </SMScene>
-      */}
     </SMController>
     <div className="section" />
   </ComponentsStyled>
