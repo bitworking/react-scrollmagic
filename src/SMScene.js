@@ -260,7 +260,7 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
       // only one root child component
       children = React.Children.only(children);
 
-      console.log(children, children.props.children);
+      // console.log(children, children.props.children);
 
       let ref = null;
 
