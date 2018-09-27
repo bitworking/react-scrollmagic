@@ -260,7 +260,7 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
       // only one root child component
       children = React.Children.only(children);
 
-      // console.log(children, children.props.children);
+      console.log(children, children.props.children);
 
       let ref = null;
 
@@ -276,12 +276,16 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
       else if (children.type.name === 'StyledComponent') {
         ref = { innerRef: this.ref };
       }
+      // SMScene
+      else if (children.type.displayName && children.type.displayName === 'SMScene') {
+        ref = { ref: this.ref };
+      }
       // Stateful Component
       else if (children.type.prototype && children.type.prototype.isReactComponent) {
         // https://github.com/facebook/react/issues/11401#issuecomment-340543801
         throw new Error('Stateful components not yet supported by SMScene. Use a HTML wrapper.');
       }
-      else {        
+      else {
         throw new Error('Stateless components not yet supported by SMScene. Use a HTML wrapper.');
       }
 
