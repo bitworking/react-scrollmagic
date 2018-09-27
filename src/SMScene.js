@@ -273,7 +273,7 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
         ref = { ref: this.ref };
       }
       // StyledComponent
-      else if (children.type.name === 'StyledComponent') {
+      else if (children.type.styledComponentId) {
         ref = { innerRef: this.ref };
       }
       // SMScene
