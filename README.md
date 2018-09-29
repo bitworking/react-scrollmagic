@@ -171,7 +171,9 @@ yoyo | boolean | yes | false
 Examples:
 
 ```jsx
-// The use of the "css" property (like in the Tween examples) would be more efficient but it also works without. The GreenSock TweenMax function figures it out by itself which are css properties and which are Tween properties.
+// The use of the "css" property (like in the Tween examples) would be more efficient but it also works without.
+// The GreenSock TweenMax function figures it out by itself which are css properties
+// and which are Tween properties.
 const App = () => (
   <div>
     <SMController>
