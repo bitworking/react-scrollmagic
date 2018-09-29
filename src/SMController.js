@@ -13,16 +13,25 @@ type Props = {
 
 }
 
+type State = {
+  controller: ?any,
+}
+
 export const SMContext = React.createContext('scrollMagic');
 
-class SMController extends React.Component<Props> {
+class SMController extends React.Component<Props, State> {
   controller: any;
-  
-  constructor(props: Props) {
-    super(props);
 
-    const { children, ...controllerProps } = props;
-    this.controller = new ScrollMagic.Controller(controllerProps);
+  state: State = {
+    controller: null,
+  }
+
+  componentDidMount() {
+    const { children, ...controllerProps } = this.props;
+
+    this.setState({
+      controller: new ScrollMagic.Controller(controllerProps)
+    });
   }
 
   componentWillUnmount() {
@@ -31,9 +40,14 @@ class SMController extends React.Component<Props> {
 
   render() {
     const { children } = this.props;
+    const { controller } = this.state;
+
+    if (controller === null) {
+      return null;
+    }
 
     const context = {
-      controller: this.controller,
+      controller,
     };
 
     return (

@@ -14,6 +14,7 @@ import List from './components/ScrollMagicExamples/List';
 import Svg from './components/ScrollMagicExamples/Svg';
 import Parallax from './components/ScrollMagicExamples/Parallax';
 import Components from './components/ScrollMagicExamples/Components';
+import MultipleControllers from './components/ScrollMagicExamples/MultipleControllers';
 
 const AppStyled = styled.div`
   nav {
@@ -68,6 +69,9 @@ const App = () => (
             <li>
               <Link to="/components">Components</Link>
             </li>
+            <li>
+              <Link to="/multiple-controllers">MultipleControllers</Link>
+            </li>
           </ul>
         </nav>
         
@@ -83,6 +87,7 @@ const App = () => (
         <Route path="/svg" component={Svg} />
         <Route path="/parallax" component={Parallax} />
         <Route path="/components" component={Components} />
+        <Route path="/multiple-controllers" component={MultipleControllers} />
       </div>
     </Router>
   </AppStyled>

@@ -28,13 +28,13 @@ type Props = {
 
   // scene parameters
   duration?: number | string,
-  enabled?: boolean,
-  loglevel?: number,
   offset?: number | string,
-  reverse?: boolean,
   triggerElement?: any,
   triggerHook?: any,
+  reverse?: boolean,
+  loglevel?: number,
   indicators?: boolean,
+  enabled?: boolean,
 
   /* setClassToggle */
   classToggle?: string | Array<string>,
@@ -135,6 +135,7 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
       timeline,
       context,
       indicators,
+      enabled,
       ...sceneParams
     } = this.props;
 
