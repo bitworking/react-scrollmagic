@@ -82,7 +82,7 @@ timeline | Timeline | yes | undefined | See Types and [link](https://greensock.c
 ### PinSettings
 
 name | type | optional | default
---- | --- | --- | --- | ---
+--- | --- | --- | ---
 pushFollowers | boolean | yes | true
 spacerClass | string | yes | "scrollmagic-pin-spacer"
 
@@ -159,7 +159,7 @@ const App = () => (
 ### Timeline
 
 name | type | optional | default
---- | --- | --- | --- | ---
+--- | --- | --- | ---
 tweens | Tween[] | yes | undefined
 delay | number | yes | 0
 stagger | number | yes | 0
