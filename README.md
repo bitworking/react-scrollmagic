@@ -60,6 +60,10 @@ refreshInterval | number | yes | 100
 
 ## SMScene
 
+The SMScene component only consumes a single child. If you want to animate multiple children then you have to wrap them in a HTML element.
+
+SMScene sets the ref for the child component automatically. This only works for HTML tags, Styled Components or React.forwardRef components. If you use stateless or stateful components then you need to set the triggerElement prop, pin and target selector or wrap them in a HTML tag. See [Components.js](https://github.com/bitworking/react-scrollmagic/blob/master/example/src/components/ScrollMagicExamples/Components.js) code  for an example.
+
 Props:
 
 name | type | optional | default | more info

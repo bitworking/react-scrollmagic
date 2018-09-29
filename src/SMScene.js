@@ -284,10 +284,12 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
       // Stateful Component
       else if (children.type.prototype && children.type.prototype.isReactComponent) {
         // https://github.com/facebook/react/issues/11401#issuecomment-340543801
-        throw new Error('Stateful components not yet supported by SMScene. Use a HTML wrapper.');
+        // throw new Error('Stateful components not yet supported by SMScene. Use a HTML wrapper.');
+        ref = null;
       }
       else {
-        throw new Error('Stateless components not yet supported by SMScene. Use a HTML wrapper.');
+        // throw new Error('Stateless components not yet supported by SMScene. Use a HTML wrapper.');
+        ref = null;
       }
 
       childrenCloned = React.cloneElement(children, ref);
