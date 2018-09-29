@@ -29,8 +29,6 @@ class Stateful extends React.Component {
   }
 }
 
-
-
 const Components = () => (
   <ComponentsStyled>
     <div className="section" />
