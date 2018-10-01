@@ -1,75 +1,13 @@
-// @flow
 import { default as React, Fragment } from 'react';
-import type { Node } from 'react';
-import { SMContext } from './SMController';
 import { default as ScrollMagic } from 'scrollmagic';
 import { TimelineMax as Timeline, TweenMax as Tween } from 'gsap/TweenMax';
 import 'gsap/TextPlugin';
 import animationGsap from './animation.gsap.js';
 import debugAddIndicators from './debug.addIndicators.js';
+import { SMContext } from './SMController';
 
 animationGsap(ScrollMagic, Timeline, Tween);
 debugAddIndicators(ScrollMagic);
-
-type TweenType = {
-  target?: any,
-  duration?: number,
-  from?: any,
-  to?: any,
-  staggerFrom?: any,
-  staggerTo?: any,
-  stagger?: number,
-  onCompleteAll?: Function,
-  position?: number | string,
-}
-
-type Props = {
-  children: Node | Function,
-
-  // scene parameters
-  duration?: number | string,
-  offset?: number | string,
-  triggerElement?: any,
-  triggerHook?: any,
-  reverse?: boolean,
-  loglevel?: number,
-  indicators?: boolean,
-  enabled?: boolean,
-
-  /* setClassToggle */
-  classToggle?: string | Array<string>,
-
-  /* setPin */
-  pin?: boolean | string,
-  pinSettings?: {
-    pushFollowers?: boolean,
-    spacerClass?: string
-  },
-
-  /* setTween */
-  tween?: TweenType,
-
-  timeline?: {
-    tweens: Array<TweenType>,
-    delay?: number,
-    stagger?: number,
-    align?: 'sequence' | 'start' | 'normal',
-    repeat?: number,
-    repeatDelay?: number,
-    yoyo?: boolean,
-
-  },
-
-}
-
-type PropsBase = Props & {
-  context: any,
-}
-
-type State = {
-  event: string,
-  progress: number,
-}
 
 const getTweenFunction = (element, tween) => {
   const {
@@ -112,10 +50,10 @@ const getTweenFunction = (element, tween) => {
   return tweenFunction;
 };
 
-class SMSceneBase extends React.PureComponent<PropsBase, State> {
+class SMSceneBase extends React.PureComponent<SMSceneBaseProps, SMSceneBaseState> {
   ref: HTMLElement;
   scene: any;
-  state = {
+  state: SMSceneBaseState = {
     event: 'init',
     progress: 0,
   }
@@ -303,7 +241,7 @@ class SMSceneBase extends React.PureComponent<PropsBase, State> {
   }
 }
 
-class SMScene extends React.PureComponent<Props, {}> {
+class SMScene extends React.PureComponent<SMSceneProps, {}> {
   static displayName = 'SMScene';
 
   render() {

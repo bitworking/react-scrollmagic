@@ -4,6 +4,7 @@ import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
+import copy from 'rollup-plugin-cpy'
 
 import pkg from './package.json'
 
@@ -32,6 +33,13 @@ export default {
       plugins: [ 'external-helpers' ]
     }),
     resolve(),
-    commonjs()
+    commonjs(),
+    copy({
+      files: 'src/index.js.flow',
+      dest: 'dist',
+      options: {
+        verbose: true
+      }
+    })
   ]
 }

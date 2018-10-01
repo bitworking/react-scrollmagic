@@ -1,5 +1,5 @@
-import SMController from './';
-import SMScene from './';
+import { SMController } from './';
+import { SMScene } from './';
 
 describe('SMController', () => {
   it('is truthy', () => {
