@@ -1,3 +1,4 @@
+// @flow
 import { default as React } from 'react';
 import { default as ScrollMagic } from 'scrollmagic';
 

@@ -1,3 +1,4 @@
+// @flow
 import { default as React, Fragment } from 'react';
 import { default as ScrollMagic } from 'scrollmagic';
 import { TimelineMax as Timeline, TweenMax as Tween } from 'gsap/TweenMax';

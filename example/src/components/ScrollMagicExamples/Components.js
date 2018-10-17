@@ -47,7 +47,7 @@ const Components = () => (
       </SMScene>
       <SMScene duration={600} pin={true}>
         <div>
-        <Stateless>Stateless Component wrapped</Stateless>
+          <Stateless>Stateless Component wrapped</Stateless>
         </div>
       </SMScene>
       <SMScene duration={600} pin="#statelessFragment" triggerElement="#statelessFragment">
