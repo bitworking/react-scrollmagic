@@ -13,7 +13,8 @@ export type SceneProps = {
   // scene parameters
   duration?: number | string,
   offset?: number | string,
-  triggerHook?: any,
+  triggerElement?: string | object,
+  triggerHook?: number | string,
   reverse?: boolean,
   loglevel?: number,
   indicators?: boolean,
@@ -34,6 +35,19 @@ export type SceneBaseProps = SceneProps & {
 export type SceneBaseState = {
   event: string,
   progress: number,
+}
+
+const refOrInnerRef = (child: any) => {
+  if (child.type.$$typeof && child.type.$$typeof.toString() === 'Symbol(react.forward_ref)') {
+    return 'ref';
+  }
+
+  // styled-components < 4
+  if (child.type.styledComponentId) {
+    return 'innerRef';
+  }
+
+  return 'ref';
 }
 
 class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
@@ -90,12 +104,12 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
   }
 
   check(children, pin, sceneParams) {
-    if (!children || (typeof children !== 'function' && children.type.displayName === 'SMScene')) {
+    if (!children || (typeof children !== 'function' && children.type.displayName === 'Scene')) {
       if (pin === true) {
-        throw new Error('Prop pin cannot be true. Use an element or element selector if children is null or if you nest a SMScene in another SMScene.');
+        throw new Error('Prop pin cannot be true. Use an element or element selector if children is null or if you nest a Scene in another Scene.');
       }
       if (!sceneParams.triggerElement) {
-        throw new Error('You have to define a triggerElement if children is null or if you nest a SMScene in another SMScene.');
+        throw new Error('You have to define a triggerElement if children is null or if you nest a Scene in another Scene.');
       }
     }
   }
@@ -159,7 +173,7 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
     }
 
     const child = React.Children.only(children);
-    return React.cloneElement(child, { ref: ref => this.ref = ref });
+    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => this.ref = ref });
   }
 }
 
