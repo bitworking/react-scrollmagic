@@ -32,6 +32,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.1.4",
     "eslint": "4.1.1",
     "eslint-config-react-app": "^2.1.0",
@@ -60,7 +61,6 @@
     "dist"
   ],
   "dependencies": {
-    "gsap": "^2.0.2",
     "scrollmagic": "^2.0.5"
   }
 }
