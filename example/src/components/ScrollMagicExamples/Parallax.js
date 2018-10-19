@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const ParallaxStyled = styled.div`
   .section {
@@ -30,9 +30,9 @@ const ParallaxStyled = styled.div`
 
 const Parallax = () => (
   <ParallaxStyled>
-    <SMController>
+    <Controller>
       <div className="section" />
-      <SMScene
+      <Scene
         indicators={true}
         duration="200%"
         triggerHook="onEnter"
@@ -67,9 +67,9 @@ const Parallax = () => (
           <img src="https://placeimg.com/1000/1000/nature" alt="" />
           <h2>Das ist ein Titel</h2>
         </div>
-      </SMScene>
+      </Scene>
       <div className="section" />
-    </SMController>
+    </Controller>
   </ParallaxStyled>
 );
 

@@ -24,5 +24,11 @@
     "next:build": "next build",
     "next:start": "next start",
     "next:bs": "next build && next start"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const SplitTextStyled = styled.div`
   overflow: hidden;
@@ -28,8 +28,8 @@ const SplitTextStyled = styled.div`
 const SplitText = () => (
   <SplitTextStyled>
     <div className="section" />
-    <SMController>
-      <SMScene
+    <Controller>
+      <Scene
         pin={false}
         reverse={true}
         duration={500}
@@ -56,9 +56,9 @@ const SplitText = () => (
           <span className="text">H</span>
           <span className="text">T</span>
         </div>
-      </SMScene>
+      </Scene>
       <div className="section" />
-      <SMScene
+      <Scene
         pin={true}
         reverse={true}
         offset={100}
@@ -98,9 +98,9 @@ const SplitText = () => (
           <span className="text2">T</span>
           <span className="text2">A</span>
         </div>
-      </SMScene>
+      </Scene>
       <div className="section" />
-      <SMScene
+      <Scene
         pin={true}
         duration={500}
         tween={{
@@ -110,8 +110,8 @@ const SplitText = () => (
         }}
       >
         <div className="text2">Was geht</div>
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
     <div className="section" />
   </SplitTextStyled>
 );

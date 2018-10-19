@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const TweenStyled = styled.div`
   .section {
@@ -30,8 +30,8 @@ const Tween = () => (
   <TweenStyled>
     <div className="section" />
     <div id="trigger" />
-    <SMController>
-      <SMScene
+    <Controller>
+      <Scene
         triggerElement="#trigger"
         duration={300}
         tween={{
@@ -44,8 +44,8 @@ const Tween = () => (
           ease: 'Strong.easeOut',
         }}>
         <div className="tween">Pin Test</div>
-      </SMScene>
-      <SMScene
+      </Scene>
+      <Scene
         triggerElement="#trigger"
         duration={200}
         pin={false}
@@ -70,8 +70,8 @@ const Tween = () => (
           },
         }}>
         <div className="tween">Pin Test</div>
-      </SMScene>
-      <SMScene
+      </Scene>
+      <Scene
         duration={500}
         tween={{
           target: '.stagger',
@@ -92,8 +92,8 @@ const Tween = () => (
           <div className="stagger" />
           <div className="stagger" />
         </div>
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
     <div className="section" />
   </TweenStyled>
 );

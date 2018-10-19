@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const SvgStyled = styled.div`
   overflow: hidden;
@@ -30,8 +30,8 @@ const SvgStyled = styled.div`
 const List = () => (
   <SvgStyled>
     <div className="section" />
-    <SMController>
-      <SMScene
+    <Controller>
+      <Scene
         duration={0}
         pin={false}
         reverse={true}
@@ -50,9 +50,9 @@ const List = () => (
         <svg>
           <polygon id="polygon" points="240,220 240,182 240,145 240,70 155,70 112,70 70,70 70,145 70,220 155,220" />
         </svg>
-      </SMScene>
+      </Scene>
       <div className="section" />
-    </SMController>
+    </Controller>
     <div className="section" />
   </SvgStyled>
 );

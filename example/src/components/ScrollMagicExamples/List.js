@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 import { Back } from 'gsap/EasePack';
 
 const ListStyled = styled.div`
@@ -25,8 +25,8 @@ const ListStyled = styled.div`
 const List = () => (
   <ListStyled>
     <div className="section" />
-    <SMController>
-      <SMScene
+    <Controller>
+      <Scene
         duration={300}
         pin={true}
         tween={{
@@ -52,9 +52,9 @@ const List = () => (
           <li>Sarah Drasner</li>
           <li>André Staltz</li>
         </ul>
-      </SMScene>
+      </Scene>
       <div className="section" />
-      <SMScene
+      <Scene
         duration={300}
         pin={true}
         tween={{
@@ -80,8 +80,8 @@ const List = () => (
           <li>Sarah Drasner</li>
           <li>André Staltz</li>
         </ul>
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
     <div className="section" />
   </ListStyled>
 );

@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 const SectionWipes2Styled = styled.div`
   overflow: hidden;
@@ -46,27 +47,39 @@ const SectionWipes2Styled = styled.div`
 
 const SectionWipes2 = () => (
   <SectionWipes2Styled>
-    <SMController>
-      <SMScene
+    <Controller>
+      <Scene
         triggerHook="onLeave"
         duration="300%"
-        pin={true}
-        timeline={{
-          tweens: [
-            { target: 'section.panel.turqoise', from: {x: "-100%"}, to: {x: "0%", ease: 'Linear.easeNone' }},
-            { target: 'section.panel.green', from: {x: "100%"}, to: {x: "0%", ease: 'Linear.easeNone' }},
-            { target: 'section.panel.bordeaux', from: {y: "-100%"}, to: {y: "0%", ease: 'Linear.easeNone' }},
-          ]
-        }}
+        pin
       >
-        <div id="pinContainer">
-          <section className="panel blue"><span>Panel</span></section>
-          <section className="panel turqoise"><span>Panel</span></section>
-          <section className="panel green"><span>Panel</span></section>
-          <section className="panel bordeaux"><span>Panel</span></section>
-        </div>
-      </SMScene>
-    </SMController>
+        {(event, progress) => (
+          <div id="pinContainer">
+            <section className="panel blue"><span>Panel</span></section>
+            <Timeline totalProgress={progress} paused>
+              <Tween
+                from={{ x: '-100%' }}
+                to={{ x: '0%', ease: 'Linear.easeNone' }}
+              >
+                <section className="panel turqoise"><span>Panel</span></section>
+              </Tween>
+              <Tween
+                from={{ x: '100%' }}
+                to={{ x: '0%', ease: 'Linear.easeNone' }}
+              >
+                <section className="panel green"><span>Panel</span></section>
+              </Tween>
+              <Tween
+                from={{ y: '-100%' }}
+                to={{ y: '0%', ease: 'Linear.easeNone' }}
+              >
+                <section className="panel bordeaux"><span>Panel</span></section>
+              </Tween>
+            </Timeline>
+          </div>
+        )}
+      </Scene>
+    </Controller>
   </SectionWipes2Styled>
 );
 
