@@ -1,6 +1,9 @@
 // @flow
 import { default as React } from 'react';
-// import debugAddIndicators from './debug.addIndicators.js';
+import ScrollMagic from './lib/scrollmagic';
+import debugAddIndicators from './lib/debug.addIndicators.js';
+
+debugAddIndicators(ScrollMagic);
 
 export type PinSettings = {
   pushFollowers?: boolean,
@@ -59,44 +62,39 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
   }
 
   componentDidMount() {
-    if (typeof window !== 'undefined') {
-      const ScrollMagic = require('scrollmagic');
+    const {
+      children,
+      controller,
+      classToggle,
+      pin,
+      pinSettings,
+      indicators,
+      enabled,
+      ...sceneParams
+    } = this.props;
 
-      const {
-        children,
-        controller,
-        classToggle,
-        pin,
-        pinSettings,
-        indicators,
-        enabled,
-        ...sceneParams
-      } = this.props;
+    //this.check(children, pin, sceneParams);
 
-      //this.check(children, pin, sceneParams);
+    const element = this.ref;
+    sceneParams.triggerElement = sceneParams.triggerElement === null ? null : sceneParams.triggerElement || element;
 
-      const element = this.ref;
-      sceneParams.triggerElement = sceneParams.triggerElement === null ? null : sceneParams.triggerElement || element;
+    this.scene = new ScrollMagic.Scene(sceneParams);
 
-      this.scene = new ScrollMagic.Scene(sceneParams);
+    this.initEventHandlers();
 
-      this.initEventHandlers();
-
-      if (classToggle) {
-        this.setClassToggle(this.scene, element, classToggle);
-      }
-
-      if (pin) {
-        this.setPin(this.scene, element, pin);
-      }
-
-      if (indicators) {
-        //debugAddIndicators(ScrollMagic);
-        //this.scene.addIndicators({ name: ' ' });
-      }
-
-      this.scene.addTo(controller);
+    if (classToggle) {
+      this.setClassToggle(this.scene, element, classToggle);
     }
+
+    if (pin) {
+      this.setPin(this.scene, element, pin);
+    }
+
+    if (indicators) {
+      this.scene.addIndicators({ name: ' ' });
+    }
+
+    this.scene.addTo(controller);
   }
 
   componentWillUnmount() {

@@ -22,8 +22,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -60,7 +60,5 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "scrollmagic": "^2.0.5"
-  }
+  "dependencies": {}
 }

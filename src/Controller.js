@@ -1,5 +1,6 @@
 // @flow
 import { default as React } from 'react';
+import ScrollMagic from './lib/scrollmagic';
 
 export type ControllerProps = {
   children: Node,
@@ -23,13 +24,10 @@ class Controller extends React.Component<ControllerProps, ControllerState> {
   }
 
   componentDidMount() {
-    if (typeof window !== 'undefined') {
-      const ScrollMagic = require('scrollmagic');
-      const { children, ...controllerProps } = this.props;
-      this.setState({
-        controller: new ScrollMagic.Controller(controllerProps)
-      });
-    }
+    const { children, ...controllerProps } = this.props;
+    this.setState({
+      controller: new ScrollMagic.Controller(controllerProps)
+    });
   }
 
   componentWillUnmount() {

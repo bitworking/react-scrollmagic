@@ -29,7 +29,7 @@ const Index = () => (
         </Sticky1>
       </Scene>
       <div style={{ height: '40vh' }} />
-      <Scene duration={700} pin={true} triggerHook="onLeave">
+      <Scene duration={700} pin={true} triggerHook="onLeave" indicators>
         {(event, progress) => (
           <div style={{ height: '100vh', backgroundColor: '#8be5b1', fontSize: '50px', padding: '50px' }}>
             <Tween from={{ x: '200px', y: '300px', rotation: 180 }} totalProgress={progress} paused>
