@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const MultipleControllersStyled = styled.div`
   .section {
@@ -31,22 +31,22 @@ const MultipleControllersStyled = styled.div`
 const MultipleControllers = () => (
   <MultipleControllersStyled>
     <div id="container1">
-      <SMController container="#container1">
+      <Controller container="#container1">
         <div className="section" />
-        <SMScene duration={600} pin={true}>
+        <Scene duration={600} pin={true}>
           <div className="sticky"><div>Pin Test</div></div>
-        </SMScene>
+        </Scene>
         <div className="section" />
-      </SMController>
+      </Controller>
     </div>
     <div id="container2">
-      <SMController container="#container2">
+      <Controller container="#container2">
         <div className="section" />
-        <SMScene duration={600} pin={true}>
+        <Scene duration={600} pin={true}>
           <div className="sticky"><div>Pin Test</div></div>
-        </SMScene>
+        </Scene>
         <div className="section" />
-      </SMController>
+      </Controller>
     </div>
   </MultipleControllersStyled>
 );

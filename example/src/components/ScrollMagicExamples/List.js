@@ -1,19 +1,21 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 import { Back } from 'gsap/EasePack';
+import { Tween, Timeline } from 'react-gsap';
 
 const ListStyled = styled.div`
   overflow: hidden;
 
   .section {
-    height: 50vh;
+    height: 70vh;
   }
 
   .devs, .devs2 {
     perspective: 4000px;
     left: 400px;
+    position: relative;
 
     & li {
       font-size: 30px;
@@ -25,23 +27,23 @@ const ListStyled = styled.div`
 const List = () => (
   <ListStyled>
     <div className="section" />
-    <SMController>
-      <SMScene
+    <Controller>
+      <Scene
         duration={300}
-        pin={true}
-        tween={{
-          target: '.devs li',
-          staggerFrom: {
+        offset={300}
+        pin
+      >
+        <Tween
+          wrapper={<ul className="devs" />}
+          staggerFrom={{
             opacity: 0,
             cycle: {
               rotationX: [-90, 90],
               transformOrigin: ['50% top -100', '50% bottom 100']
             }
-          },
-          stagger: 0.1,
-        }}
-      >
-        <ul className="devs">
+          }}
+          stagger={0.1}
+        >
           <li>Rich Harris</li>
           <li>Dan Abramov</li>
           <li>Kyle Simpson</li>
@@ -51,25 +53,25 @@ const List = () => (
           <li>Axel Rauschmayer</li>
           <li>Sarah Drasner</li>
           <li>André Staltz</li>
-        </ul>
-      </SMScene>
+        </Tween>
+      </Scene>
       <div className="section" />
-      <SMScene
+      <Scene
         duration={300}
-        pin={true}
-        tween={{
-          target: '.devs2 li',
-          staggerFrom: {
+        offset={300}
+        pin
+      >
+        <Tween
+          wrapper={<ul className="devs2" />}
+          staggerFrom={{
             opacity: 0,
             cycle: {
               x: i => (i+1) * 50,
             },
             ease: Back.easeOut,
-          },
-          stagger: 0.1,
-        }}
-      >
-        <ul className="devs2">
+          }}
+          stagger={0.1}
+        >
           <li>Rich Harris</li>
           <li>Dan Abramov</li>
           <li>Kyle Simpson</li>
@@ -79,9 +81,9 @@ const List = () => (
           <li>Axel Rauschmayer</li>
           <li>Sarah Drasner</li>
           <li>André Staltz</li>
-        </ul>
-      </SMScene>
-    </SMController>
+        </Tween>
+      </Scene>
+    </Controller>
     <div className="section" />
   </ListStyled>
 );

@@ -34,6 +34,7 @@ export default {
     }),
     resolve(),
     commonjs(),
+    /*
     copy({
       files: 'src/index.js.flow',
       dest: 'dist',
@@ -41,5 +42,6 @@ export default {
         verbose: true
       }
     })
+    */
   ]
 }

@@ -1,4 +1,4 @@
-import { SMController } from './SMController';
-import { SMScene } from './SMScene';
+import { Controller } from './Controller';
+import { Scene } from './Scene';
 
-export { SMController, SMScene };
+export { Controller, Scene };

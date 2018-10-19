@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const ComponentsStyled = styled.div`
   .section {
@@ -32,31 +32,31 @@ class Stateful extends React.Component {
 const Components = () => (
   <ComponentsStyled>
     <div className="section" />
-    <SMController>
-      <SMScene duration={600} pin={true}>
+    <Controller>
+      <Scene duration={600} pin={true}>
         <div>HTML tag</div>
-      </SMScene>
-      <SMScene duration={600} pin={true}>
+      </Scene>
+      <Scene duration={600} pin={true}>
         <StatelessRef />
-      </SMScene>
-      <SMScene duration={600} pin={true}>
+      </Scene>
+      <Scene duration={600} pin={true}>
         <StyledDiv>Styled Component</StyledDiv>
-      </SMScene>
-      <SMScene duration={600} pin="#stateless" triggerElement="#stateless">
+      </Scene>
+      <Scene duration={600} pin="#stateless" triggerElement="#stateless">
         <Stateless>Stateless Component</Stateless>
-      </SMScene>
-      <SMScene duration={600} pin={true}>
+      </Scene>
+      <Scene duration={600} pin={true}>
         <div>
           <Stateless>Stateless Component wrapped</Stateless>
         </div>
-      </SMScene>
-      <SMScene duration={600} pin="#statelessFragment" triggerElement="#statelessFragment">
+      </Scene>
+      <Scene duration={600} pin="#statelessFragment" triggerElement="#statelessFragment">
         <StatelessFragment />
-      </SMScene>
-      <SMScene duration={600} pin="#stateful" triggerElement="#stateful">
+      </Scene>
+      <Scene duration={600} pin="#stateful" triggerElement="#stateful">
         <Stateful />
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
     <div className="section" />
   </ComponentsStyled>
 );

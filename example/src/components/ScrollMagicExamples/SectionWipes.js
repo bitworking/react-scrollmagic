@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const SectionWipesStyled = styled.div`
   overflow: hidden;
@@ -41,20 +41,20 @@ const SectionWipesStyled = styled.div`
 
 const SectionWipes = () => (
   <SectionWipesStyled>
-    <SMController globalSceneOptions={{ triggerHook: 'onLeave' }}>
-      <SMScene pin={true}>
+    <Controller globalSceneOptions={{ triggerHook: 'onLeave' }}>
+      <Scene pin>
         <div className="panel blue"><span>Panel</span></div>
-      </SMScene>
-      <SMScene pin={true}>
+      </Scene>
+      <Scene pin>
         <div className="panel turqoise"><span>Panel</span></div>
-      </SMScene>
-      <SMScene pin={true}>
+      </Scene>
+      <Scene pin>
         <div className="panel green"><span>Panel</span></div>
-      </SMScene>
-      <SMScene pin={true}>
+      </Scene>
+      <Scene pin>
         <div className="panel bordeaux"><span>Panel</span></div>
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
   </SectionWipesStyled>
 );
 
