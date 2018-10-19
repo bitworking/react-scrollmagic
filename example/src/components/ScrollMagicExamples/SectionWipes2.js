@@ -53,31 +53,29 @@ const SectionWipes2 = () => (
         duration="300%"
         pin
       >
-        {(event, progress) => (
-          <div id="pinContainer">
-            <section className="panel blue"><span>Panel</span></section>
-            <Timeline totalProgress={progress} paused>
-              <Tween
-                from={{ x: '-100%' }}
-                to={{ x: '0%' }}
-              >
-                <section className="panel turqoise"><span>Panel</span></section>
-              </Tween>
-              <Tween
-                from={{ x: '100%' }}
-                to={{ x: '0%' }}
-              >
-                <section className="panel green"><span>Panel</span></section>
-              </Tween>
-              <Tween
-                from={{ y: '-100%' }}
-                to={{ y: '0%' }}
-              >
-                <section className="panel bordeaux"><span>Panel</span></section>
-              </Tween>
-            </Timeline>
-          </div>
-        )}
+        <Timeline
+          wrapper={<div id="pinContainer" />}
+        >
+          <section className="panel blue"><span>Panel</span></section>
+          <Tween
+            from={{ x: '-100%' }}
+            to={{ x: '0%' }}
+          >
+            <section className="panel turqoise"><span>Panel</span></section>
+          </Tween>
+          <Tween
+            from={{ x: '100%' }}
+            to={{ x: '0%' }}
+          >
+            <section className="panel green"><span>Panel</span></section>
+          </Tween>
+          <Tween
+            from={{ y: '-100%' }}
+            to={{ y: '0%' }}
+          >
+            <section className="panel bordeaux"><span>Panel</span></section>
+          </Tween>
+        </Timeline>
       </Scene>
     </Controller>
   </SectionWipes2Styled>

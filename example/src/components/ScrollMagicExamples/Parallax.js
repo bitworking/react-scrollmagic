@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 const ParallaxStyled = styled.div`
   .section {
@@ -36,37 +37,35 @@ const Parallax = () => (
         indicators={true}
         duration="200%"
         triggerHook="onEnter"
-        timeline={{
-          tweens: [
-            {
-              target: '.parallax img',
-              position: '0',
-              from: {
-                   yPercent: -50,
-              },
-              to: {
-                 yPercent: 0,
-              },
-            },
-            {
-              target: '.parallax h2',
-              position: '0',
-              from: {
-                top: '0%',
-                scale: 1.5,
-              },
-              to: {
-                top: '70%',
-                scale: 2,
-              },
-            },
-          ],
-        }}
       >
-        <div className="parallax">
-          <img src="https://placeimg.com/1000/1000/nature" alt="" />
-          <h2>Das ist ein Titel</h2>
-        </div>
+        <Timeline
+          wrapper={<div className="parallax" />}
+        >
+          <Tween
+            position="0"
+            from={{
+              yPercent: -50,
+            }}
+            to={{
+                yPercent: 0,
+            }}
+          >
+            <img src="https://placeimg.com/1000/1000/nature" alt="" />
+          </Tween>
+          <Tween
+          position="0"
+            from={{
+              top: '0%',
+              scale: 1.5,
+            }}
+            to={{
+              top: '70%',
+              scale: 2,
+            }}
+          >
+            <h2>Das ist ein Titel</h2>
+          </Tween>
+        </Timeline>
       </Scene>
       <div className="section" />
     </Controller>

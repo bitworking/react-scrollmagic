@@ -31,8 +31,8 @@ const ClassToggle = () => (
     <div id="trigger" />
     <Controller>
       <Scene duration={200} classToggle="zap" triggerElement="#trigger" indicators={true}>
-        {(event, progress) => (
-          <div className="test">Pin Test {event} {progress}</div>
+        {(progress, event) => (
+          <div className="test">Pin Test {event.type} {progress}</div>
         )}
       </Scene>
       <Scene classToggle={['.test', 'yellow']} reverse={false} indicators={true}>
