@@ -59,19 +59,19 @@ const SectionWipes2 = () => (
             <Timeline totalProgress={progress} paused>
               <Tween
                 from={{ x: '-100%' }}
-                to={{ x: '0%', ease: 'Linear.easeNone' }}
+                to={{ x: '0%' }}
               >
                 <section className="panel turqoise"><span>Panel</span></section>
               </Tween>
               <Tween
                 from={{ x: '100%' }}
-                to={{ x: '0%', ease: 'Linear.easeNone' }}
+                to={{ x: '0%' }}
               >
                 <section className="panel green"><span>Panel</span></section>
               </Tween>
               <Tween
                 from={{ y: '-100%' }}
-                to={{ y: '0%', ease: 'Linear.easeNone' }}
+                to={{ y: '0%' }}
               >
                 <section className="panel bordeaux"><span>Panel</span></section>
               </Tween>

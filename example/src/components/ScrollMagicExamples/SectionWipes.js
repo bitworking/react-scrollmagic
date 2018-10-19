@@ -42,16 +42,16 @@ const SectionWipesStyled = styled.div`
 const SectionWipes = () => (
   <SectionWipesStyled>
     <Controller globalSceneOptions={{ triggerHook: 'onLeave' }}>
-      <Scene pin={true}>
+      <Scene pin>
         <div className="panel blue"><span>Panel</span></div>
       </Scene>
-      <Scene pin={true}>
+      <Scene pin>
         <div className="panel turqoise"><span>Panel</span></div>
       </Scene>
-      <Scene pin={true}>
+      <Scene pin>
         <div className="panel green"><span>Panel</span></div>
       </Scene>
-      <Scene pin={true}>
+      <Scene pin>
         <div className="panel bordeaux"><span>Panel</span></div>
       </Scene>
     </Controller>

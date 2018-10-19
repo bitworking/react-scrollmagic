@@ -29,7 +29,7 @@ const Sticky = () => (
       <Scene duration={600} pin={true}>
         <div className="sticky"><div>Pin Test</div></div>
       </Scene>
-      <Scene duration={200} pin={true} pinSettings={{ pushFollowers: false }}>
+      <Scene duration={200} pin={{ pushFollowers: false }}>
         <div className="sticky"><div>Pin Test</div></div>
       </Scene>
       <Scene duration={300} pin={true} offset={100}>
