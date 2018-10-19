@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const StickyStyled = styled.div`
   .section {
@@ -25,17 +25,17 @@ const StickyStyled = styled.div`
 const Sticky = () => (
   <StickyStyled>
     <div className="section" />
-    <SMController>
-      <SMScene duration={600} pin={true}>
+    <Controller>
+      <Scene duration={600} pin={true}>
         <div className="sticky"><div>Pin Test</div></div>
-      </SMScene>
-      <SMScene duration={200} pin={true} pinSettings={{ pushFollowers: false }}>
+      </Scene>
+      <Scene duration={200} pin={{ pushFollowers: false }}>
         <div className="sticky"><div>Pin Test</div></div>
-      </SMScene>
-      <SMScene duration={300} pin={true} offset={100}>
+      </Scene>
+      <Scene duration={300} pin={true} offset={100}>
         <div className="sticky blue"><div>Pin Test</div></div>
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
     <div className="section" />
   </StickyStyled>
 );

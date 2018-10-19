@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { SMController, SMScene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic';
 
 const ClassToggleStyled = styled.div`
   .section {
@@ -29,16 +29,16 @@ const ClassToggle = () => (
   <ClassToggleStyled>
     <div className="section" />
     <div id="trigger" />
-    <SMController>
-      <SMScene duration={200} classToggle="zap" triggerElement="#trigger" indicators={true}>
-        {(event, progress) => (
-          <div className="test">Pin Test {event} {progress}</div>
+    <Controller>
+      <Scene duration={200} classToggle="zap" triggerElement="#trigger" indicators={true}>
+        {(progress, event) => (
+          <div className="test">Pin Test {event.type} {progress}</div>
         )}
-      </SMScene>
-      <SMScene classToggle={['.test', 'yellow']} reverse={false} indicators={true}>
+      </Scene>
+      <Scene classToggle={['.test', 'yellow']} reverse={false} indicators={true}>
         <div>Toggle other class</div>
-      </SMScene>
-    </SMController>
+      </Scene>
+    </Controller>
     <div className="section" />
   </ClassToggleStyled>
 );

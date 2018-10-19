@@ -24,7 +24,9 @@ const AppStyled = styled.div`
 `;
 
 const Home = () => (
-  <div />
+  <div style={{ marginLeft: '400px' }}>
+    Empty home...click on the examples
+  </div>
 );
 
 const App = () => (

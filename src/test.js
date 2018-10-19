@@ -1,14 +1,14 @@
-import { SMController } from './';
-import { SMScene } from './';
+import { Controller } from './';
+import { Scene } from './';
 
-describe('SMController', () => {
+describe('Controller', () => {
   it('is truthy', () => {
-    expect(SMController).toBeTruthy()
+    expect(Controller).toBeTruthy()
   })
 });
 
-describe('SMScene', () => {
+describe('Scene', () => {
   it('is truthy', () => {
-    expect(SMScene).toBeTruthy()
+    expect(Scene).toBeTruthy()
   })
 });
