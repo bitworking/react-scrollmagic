@@ -164,25 +164,7 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
       return;
     }
 
-    this.scene.on('start', (event) => {
-      this.setState({
-        event
-      });
-    });
-
-    this.scene.on('end', (event) => {
-      this.setState({
-        event
-      });
-    });
-
-    this.scene.on('enter', (event) => {
-      this.setState({
-        event
-      });
-    });
-
-    this.scene.on('leave', (event) => {
+    this.scene.on('start end enter leave', (event) => {
       this.setState({
         event
       });
