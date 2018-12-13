@@ -1,6 +1,6 @@
 {
   "name": "react-scrollmagic",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "React declarative component for ScrollMagic",
   "author": "bitworking",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -17,7 +18,8 @@
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "prepare": "yarn run build",
+    "copy": "copy \"src\\index.d.ts\" \"dist\\index.d.ts\"",
+    "prepare": "yarn run build && npm run copy",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
