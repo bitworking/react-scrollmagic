@@ -26,7 +26,7 @@ const Sticky = () => (
   <StickyStyled>
     <div className="section" />
     <Controller>
-      <Scene duration={600} pin={true}>
+      <Scene duration={600} pin={true} enabled={true}>
         <div className="sticky"><div>Pin Test</div></div>
       </Scene>
       <Scene duration={200} pin={{ pushFollowers: false }}>

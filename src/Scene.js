@@ -136,7 +136,46 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
       this.scene.addIndicators({ name: ' ' });
     }
 
+    if (enabled !== undefined) {
+      this.scene.enabled(enabled);
+    }
+
     this.scene.addTo(controller);
+  }
+
+  componentDidUpdate(prevProps: SceneBaseProps) {
+    const {
+      duration,
+      offset,
+      triggerElement,
+      triggerHook,
+      reverse,
+      enabled,
+    } = this.props;
+
+    if (duration !== undefined && duration !== prevProps.duration) {
+      this.scene.duration(duration);
+    }
+
+    if (offset !== undefined && offset !== prevProps.offset) {
+      this.scene.offset(offset);
+    }
+
+    if (triggerElement !== undefined && triggerElement !== prevProps.triggerElement) {
+      // this.scene.triggerElement(triggerElement);
+    }
+
+    if (triggerHook !== undefined && triggerHook !== prevProps.triggerHook) {
+      this.scene.triggerHook(triggerHook);
+    }
+
+    if (reverse !== undefined && reverse !== prevProps.reverse) {
+      this.scene.reverse(reverse);
+    }
+
+    if (enabled !== undefined && enabled !== prevProps.enabled) {
+      this.scene.enabled(enabled);
+    }
   }
 
   componentWillUnmount() {

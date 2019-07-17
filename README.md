@@ -76,17 +76,17 @@ Props:
 
 name | type | optional | default | more info
 --- | --- | --- | --- | ---
-duration | number or string | yes | 0 
-offset | number or string | yes | 0
+duration | number or string | yes | 0 | Can be changed on-the-fly
+offset | number or string | yes | 0 | Can be changed on-the-fly
 triggerElement | string, object or null | yes | child element
-triggerHook | number or string | yes | "onCenter" | [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#constructor)
-reverse | boolean | yes | true
+triggerHook | number or string | yes | "onCenter" | [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#constructor) (Can be changed on-the-fly)
+reverse | boolean | yes | true | Can be changed on-the-fly
 loglevel | number | yes | 2
 indicators | boolean | yes | false | only boolean in contrast to plugin options: [link](http://scrollmagic.io/docs/debug.addIndicators.html#Scene.addIndicators)
 classToggle | string or string[2] | yes | undefined | [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#setClassToggle)
 pin | boolean or string | yes | undefined | [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#setPin)
 pinSettings | PinSettings | yes | undefined | See Types and [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#setPin)
-
+enabled | boolean | yes | true | Can be changed on-the-fly
   
 ## Types
 
