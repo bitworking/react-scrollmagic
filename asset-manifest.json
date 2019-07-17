@@ -1,11 +1,13 @@
 {
-  "main.js": "/react-scrollmagic/static/js/main.c91ffe4f.chunk.js",
-  "main.js.map": "/react-scrollmagic/static/js/main.c91ffe4f.chunk.js.map",
-  "static/js/1.2f7e3862.chunk.js": "/react-scrollmagic/static/js/1.2f7e3862.chunk.js",
-  "static/js/1.2f7e3862.chunk.js.map": "/react-scrollmagic/static/js/1.2f7e3862.chunk.js.map",
-  "runtime~main.js": "/react-scrollmagic/static/js/runtime~main.5c5c928c.js",
-  "runtime~main.js.map": "/react-scrollmagic/static/js/runtime~main.5c5c928c.js.map",
-  "index.html": "/react-scrollmagic/index.html",
-  "precache-manifest.fe1053214b88f08a36fac323dac30e7f.js": "/react-scrollmagic/precache-manifest.fe1053214b88f08a36fac323dac30e7f.js",
-  "service-worker.js": "/react-scrollmagic/service-worker.js"
+  "files": {
+    "main.js": "/react-scrollmagic/static/js/main.1ab359de.chunk.js",
+    "main.js.map": "/react-scrollmagic/static/js/main.1ab359de.chunk.js.map",
+    "runtime~main.js": "/react-scrollmagic/static/js/runtime~main.0c75455f.js",
+    "runtime~main.js.map": "/react-scrollmagic/static/js/runtime~main.0c75455f.js.map",
+    "static/js/2.97bc8062.chunk.js": "/react-scrollmagic/static/js/2.97bc8062.chunk.js",
+    "static/js/2.97bc8062.chunk.js.map": "/react-scrollmagic/static/js/2.97bc8062.chunk.js.map",
+    "index.html": "/react-scrollmagic/index.html",
+    "precache-manifest.a9718fc819d01cc68dc1d3fc3a771b6a.js": "/react-scrollmagic/precache-manifest.a9718fc819d01cc68dc1d3fc3a771b6a.js",
+    "service-worker.js": "/react-scrollmagic/service-worker.js"
+  }
 }
