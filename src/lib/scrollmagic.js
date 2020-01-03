@@ -13,19 +13,10 @@
 /**
  * @namespace ScrollMagic
  */
-(function (root, factory) {
-	if (typeof define === 'function' && define.amd) {
-		// AMD. Register as an anonymous module.
-		define(factory);
-	} else if (typeof exports === 'object') {
-		// CommonJS
-		module.exports = factory();
-	} else {
-		// Browser global
-		root.ScrollMagic = factory();
-	}
-}(this, function () {
-	"use strict";
+const windowMock = {};
+windowMock.addEventListener = function() {};
+
+export default (function(window, document) {
 
 	var ScrollMagic = function () {
 		_util.log(2, '(COMPATIBILITY NOTICE) -> As of ScrollMagic 2.0.0 you need to use \'new ScrollMagic.Controller()\' to create a new controller instance. Use \'new ScrollMagic.Scene()\' to instance a scene.');
@@ -2784,33 +2775,9 @@
 		};
 
 		return U;
-	}(window || {}));
 
+  }(window || {}));
 
-	ScrollMagic.Scene.prototype.addIndicators = function () {
-		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling addIndicators() due to missing Plugin \'debug.addIndicators\'. Please make sure to include plugins/debug.addIndicators.js');
-		return this;
-	}
-	ScrollMagic.Scene.prototype.removeIndicators = function () {
-		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeIndicators() due to missing Plugin \'debug.addIndicators\'. Please make sure to include plugins/debug.addIndicators.js');
-		return this;
-	}
-	ScrollMagic.Scene.prototype.setTween = function () {
-		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling setTween() due to missing Plugin \'animation.gsap\'. Please make sure to include plugins/animation.gsap.js');
-		return this;
-	}
-	ScrollMagic.Scene.prototype.removeTween = function () {
-		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeTween() due to missing Plugin \'animation.gsap\'. Please make sure to include plugins/animation.gsap.js');
-		return this;
-	}
-	ScrollMagic.Scene.prototype.setVelocity = function () {
-		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling setVelocity() due to missing Plugin \'animation.velocity\'. Please make sure to include plugins/animation.velocity.js');
-		return this;
-	}
-	ScrollMagic.Scene.prototype.removeVelocity = function () {
-		ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeVelocity() due to missing Plugin \'animation.velocity\'. Please make sure to include plugins/animation.velocity.js');
-		return this;
-	}
+  return ScrollMagic;
 
-	return ScrollMagic;
-}));
+})(typeof window === 'undefined' ? windowMock : window, typeof document === 'undefined' ? {} : document);
