@@ -1,13 +1,20 @@
 {
   "files": {
-    "main.js": "/react-scrollmagic/static/js/main.1ab359de.chunk.js",
-    "main.js.map": "/react-scrollmagic/static/js/main.1ab359de.chunk.js.map",
-    "runtime~main.js": "/react-scrollmagic/static/js/runtime~main.0c75455f.js",
-    "runtime~main.js.map": "/react-scrollmagic/static/js/runtime~main.0c75455f.js.map",
-    "static/js/2.97bc8062.chunk.js": "/react-scrollmagic/static/js/2.97bc8062.chunk.js",
-    "static/js/2.97bc8062.chunk.js.map": "/react-scrollmagic/static/js/2.97bc8062.chunk.js.map",
+    "main.js": "/react-scrollmagic/static/js/main.cf969cfa.chunk.js",
+    "main.js.map": "/react-scrollmagic/static/js/main.cf969cfa.chunk.js.map",
+    "runtime-main.js": "/react-scrollmagic/static/js/runtime-main.09829065.js",
+    "runtime-main.js.map": "/react-scrollmagic/static/js/runtime-main.09829065.js.map",
+    "static/js/2.2def09d1.chunk.js": "/react-scrollmagic/static/js/2.2def09d1.chunk.js",
+    "static/js/2.2def09d1.chunk.js.map": "/react-scrollmagic/static/js/2.2def09d1.chunk.js.map",
     "index.html": "/react-scrollmagic/index.html",
-    "precache-manifest.a9718fc819d01cc68dc1d3fc3a771b6a.js": "/react-scrollmagic/precache-manifest.a9718fc819d01cc68dc1d3fc3a771b6a.js",
-    "service-worker.js": "/react-scrollmagic/service-worker.js"
-  }
+    "precache-manifest.0da0247cedd00cca161931d5d4d4bb07.js": "/react-scrollmagic/precache-manifest.0da0247cedd00cca161931d5d4d4bb07.js",
+    "service-worker.js": "/react-scrollmagic/service-worker.js",
+    "static/js/2.2def09d1.chunk.js.LICENSE.txt": "/react-scrollmagic/static/js/2.2def09d1.chunk.js.LICENSE.txt",
+    "static/js/main.cf969cfa.chunk.js.LICENSE.txt": "/react-scrollmagic/static/js/main.cf969cfa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09829065.js",
+    "static/js/2.2def09d1.chunk.js",
+    "static/js/main.cf969cfa.chunk.js"
+  ]
 }
