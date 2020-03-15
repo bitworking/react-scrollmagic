@@ -21,6 +21,11 @@
 export default function (ScrollMagic) {
 	var NAMESPACE = "debug.addIndicators";
 
+	if (typeof window === 'undefined') {
+    var window = {};
+    window.addEventListener = function(){};
+  }
+
 	var
 		console = window.console || {},
 		err = Function.prototype.bind.call(console.error || console.log || function () {}, console);
