@@ -13,7 +13,7 @@ export type ControllerProps = {
 }
 
 export type ControllerState = {
-  controller: ?any
+  controller: ?any,
 }
 
 const ControllerContext = React.createContext(null);
