@@ -12,6 +12,10 @@ export type ControllerProps = {
 
 }
 
+export type ControllerState = {
+  controller: ?any
+}
+
 const ControllerContext = React.createContext(null);
 
 class Controller extends React.Component<ControllerProps, ControllerState> {
