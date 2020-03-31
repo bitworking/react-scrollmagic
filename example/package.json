@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "flow-bin": "^0.81.0",
-    "next": "^7.0.2",
+    "next": "^9.3.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-gsap": "1.0.16",
