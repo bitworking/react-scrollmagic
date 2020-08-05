@@ -22,6 +22,7 @@ export type SceneProps = {
   loglevel?: number,
   indicators?: boolean,
   enabled?: boolean,
+  progressEvents?: boolean,
 
   /* setClassToggle */
   classToggle?: string | Array<string>,
@@ -197,7 +198,7 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
   }
 
   initEventHandlers() {
-    let { children } = this.props;
+    let { children, progressEvents = true } = this.props;
 
     if (typeof children !== 'function' && !isGSAP(callChildFunction(children, 0, 'init'))) {
       return;
@@ -209,11 +210,13 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
       });
     });
 
-    this.scene.on('progress', (event) => {
-      this.setState({
-        progress: event.progress
+    if(progressEvents){
+      this.scene.on('progress', (event) => {
+        this.setState({
+          progress: event.progress
+        });
       });
-    });
+    }
   }
 
   render() {
