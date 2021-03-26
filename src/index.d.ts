@@ -34,6 +34,7 @@ declare module 'react-scrollmagic' {
     loglevel?: number,
     indicators?: boolean,
     enabled?: boolean,
+    progressEvents?: boolean,
 
     /* setClassToggle */
     classToggle?: string | string[],

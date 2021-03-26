@@ -87,6 +87,7 @@ classToggle | string or string[2] | yes | undefined | [link](http://scrollmagic.
 pin | boolean or string | yes | undefined | [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#setPin)
 pinSettings | PinSettings | yes | undefined | See Types and [link](http://scrollmagic.io/docs/ScrollMagic.Scene.html#setPin)
 enabled | boolean | yes | true | Can be changed on-the-fly
+progressEvents | boolean | yes | true | Ability to silence progress events reducing redraws
   
 ## Types
 
