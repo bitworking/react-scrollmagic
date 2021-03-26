@@ -1,6 +1,6 @@
 {
   "name": "react-scrollmagic",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "React declarative component for ScrollMagic",
   "author": "bitworking",
   "license": "MIT",
@@ -24,8 +24,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.0.0-0 || ^17.0.0-0",
+    "react-dom": "^16.0.0-0 || ^17.0.0-0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
