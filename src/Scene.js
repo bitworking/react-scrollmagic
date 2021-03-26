@@ -1,5 +1,6 @@
 // @flow
 import { default as React } from 'react';
+import { ControllerContext } from './Controller';
 import ScrollMagic from './lib/scrollmagic';
 import debugAddIndicators from './lib/debug.addIndicators.js';
 
@@ -228,7 +229,7 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
   }
 }
 
-class Scene extends React.PureComponent<SceneProps, {}> {
+class SceneWrapper extends React.PureComponent<SceneProps, {}> {
   static displayName = 'Scene';
 
   render() {
@@ -246,4 +247,12 @@ class Scene extends React.PureComponent<SceneProps, {}> {
   }
 }
 
-export { Scene };
+export const Scene = ({ children, ...props }) => (
+  <ControllerContext.Consumer>
+    {controller => (
+      <SceneWrapper controller={controller} {...props}>
+        {children}
+      </SceneWrapper>
+    )}
+  </ControllerContext.Consumer>
+);

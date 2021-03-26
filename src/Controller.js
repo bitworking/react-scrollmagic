@@ -16,6 +16,8 @@ export type ControllerState = {
   controller: ?any,
 }
 
+const ControllerContext = React.createContext(null);
+
 class Controller extends React.Component<ControllerProps, ControllerState> {
   controller: any;
 
@@ -42,14 +44,12 @@ class Controller extends React.Component<ControllerProps, ControllerState> {
       return children;
     }
 
-    return React.Children.map(children, (child) => {
-      if (child.type.displayName !== 'Scene') {
-        return child;
-      }
-      const props = {...child.props, controller};
-      return <child.type {...props} />;
-    });
+    return (
+      <ControllerContext.Provider value={controller}>
+        {children}
+      </ControllerContext.Provider>
+    );
   }
 }
 
-export { Controller };
+export { Controller, ControllerContext };
