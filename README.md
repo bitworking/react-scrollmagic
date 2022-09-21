@@ -4,6 +4,8 @@
 
 [![NPM](https://img.shields.io/npm/v/react-scrollmagic.svg)](https://www.npmjs.com/package/react-scrollmagic)
 
+:warning: **This library is not developed any further right now. Please consider to use GSAP ScrollTrigger instead. I have a helper component in my other library react-gsap: https://bitworking.github.io/react-gsap/src-components-scroll-trigger**
+
 # Introduction
 
 react-scrollmagic lets you use the [ScrollMagic](http://scrollmagic.io/) library in React in a fully declarative way. It abstracts away the direct use of the ScrollMagic classes [ScrollMagic.Controller](http://scrollmagic.io/docs/ScrollMagic.Controller.html) and [ScrollMagic.Scene](http://scrollmagic.io/docs/ScrollMagic.Scene.html).
