@@ -247,17 +247,12 @@ const SceneWrapper = React.forwardRef(({ controller, ...props }, ref) => {
     return getChild(children, progress, event);
   }
 
-  return (
-    <SceneBase {...props} ref={ref} controller={controller} />
-  );
-});
-
-export const Scene = React.forwardRef(({ children, ...props }, ref) => {
-  const sceneRef = useRef(null); // Ref to capture SceneBase instance
+    const sceneRef = useRef(null); // Ref to capture SceneBase instance
 
   const mergedRef = useCallback(
     (instance) => {
       sceneRef.current = instance;
+      console.log(instance)
 
       if (ref) {
         if (typeof ref === 'function') {
@@ -270,6 +265,14 @@ export const Scene = React.forwardRef(({ children, ...props }, ref) => {
     },
     [ref]
   );
+
+  return (
+    <SceneBase {...props} ref={mergedRef} controller={controller} />
+  );
+});
+
+export const Scene = React.forwardRef(({ children, ...props }, ref) => {
+
 
   return (
     <ControllerContext.Consumer>
