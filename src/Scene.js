@@ -234,25 +234,23 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
 
     // TODO: Don't add ref to stateless or stateful components 
 
-    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => this.ref = ref });
+    return React.cloneElement(child, {});
   }
 }
 
 const SceneWrapper = React.forwardRef(({ controller, ...props }, ref) => {
-  if (!controller) {
-    const { children } = props;
-    const progress = 0;
-    const event = 'init';
+  console.log('SceneWrapper', ref)
+  return (
+    <SceneBase {...props} ref={ref} controller={controller} /> // Simply forward the ref here
+  );
+});
 
-    return getChild(children, progress, event);
-  }
-
-    const sceneRef = useRef(null); // Ref to capture SceneBase instance
+export const Scene = React.forwardRef(({ children, ...props }, ref) => {
+  const sceneWrapperRef = useRef(null); // Ref to capture SceneWrapper instance
 
   const mergedRef = useCallback(
     (instance) => {
-      sceneRef.current = instance;
-      console.log(instance)
+      sceneWrapperRef.current = instance;
 
       if (ref) {
         if (typeof ref === 'function') {
@@ -265,14 +263,6 @@ const SceneWrapper = React.forwardRef(({ controller, ...props }, ref) => {
     },
     [ref]
   );
-
-  return (
-    <SceneBase {...props} ref={mergedRef} controller={controller} />
-  );
-});
-
-export const Scene = React.forwardRef(({ children, ...props }, ref) => {
-
 
   return (
     <ControllerContext.Consumer>
