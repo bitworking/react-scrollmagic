@@ -237,12 +237,22 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
       return child;
     }
 
-    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => ref = this.ref });
+    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => ref = this.ref, refresh: this.refreshScene });
   }
 }
 
-const SceneWrapper = React.forwardRef(({ controller, ...props }, ref) => {
-  console.log('SceneWrapper', ref)
+const SceneWrapper = React.forwardRef(({ controller, refresh, ...props }, ref) => {
+  console.log('SceneWrapper', ref);
+
+  useImperativeHandle(ref, () => {
+    return {
+      refresh() {
+        console.log("here");
+        refresh();
+      }
+    };
+  }, []);
+  
   return (
     <SceneBase {...props} ref={ref} controller={controller} /> // Simply forward the ref here
   );
