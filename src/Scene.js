@@ -237,7 +237,7 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
       return child;
     }
 
-    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => this.ref = ref });
+    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => ref = this.ref });
   }
 }
 
