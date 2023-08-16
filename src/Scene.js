@@ -1,5 +1,5 @@
 // @flow
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { ControllerContext } from './Controller';
 import ScrollMagic from './lib/scrollmagic';
 import debugAddIndicators from './lib/debug.addIndicators.js';
