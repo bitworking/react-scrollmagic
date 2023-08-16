@@ -1,5 +1,5 @@
 // @flow
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useCallback } from 'react';
 import { ControllerContext } from './Controller';
 import ScrollMagic from './lib/scrollmagic';
 import debugAddIndicators from './lib/debug.addIndicators.js';
@@ -238,27 +238,38 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
   }
 }
 
-class SceneWrapper extends React.PureComponent<SceneProps, {}> {
-  static displayName = 'Scene';
+const SceneWrapper = React.forwardRef(({ controller, ...props }, ref) => {
+  if (!controller) {
+    const { children } = props;
+    const progress = 0;
+    const event = 'init';
 
-  render() {
-    if (!this.props.controller) {
-      let { children } = this.props;
-      const progress = 0;
-      const event = 'init';
-
-      return getChild(children, progress, event);
-    }
-
-    return (
-      <SceneBase {...this.props} />
-    );
+    return getChild(children, progress, event);
   }
-}
 
+  return (
+    <SceneBase {...props} ref={ref} controller={controller} />
+  );
+});
 
-export const Scene = forwardRef(({ children, ...props }, ref) => {
+export const Scene = React.forwardRef(({ children, ...props }, ref) => {
   const sceneRef = useRef(null); // Ref to capture SceneBase instance
+
+  const mergedRef = useCallback(
+    (instance) => {
+      sceneRef.current = instance;
+
+      if (ref) {
+        if (typeof ref === 'function') {
+          ref(instance);
+        } else if (typeof ref === 'object') {
+          ref.current = instance;
+          ref.current.refreshScene = instance.refreshScene; // Expose the refreshScene function
+        }
+      }
+    },
+    [ref]
+  );
 
   return (
     <ControllerContext.Consumer>
@@ -266,17 +277,7 @@ export const Scene = forwardRef(({ children, ...props }, ref) => {
         <SceneWrapper
           controller={controller}
           {...props}
-          ref={(instance) => {
-            // Forward the ref to the parent component
-            sceneRef.current = instance;
-            if (ref) {
-              if (typeof ref === 'function') {
-                ref(instance);
-              } else if (typeof ref === 'object') {
-                ref.current = instance;
-              }
-            }
-          }}
+          ref={mergedRef}
         >
           {children}
         </SceneWrapper>
