@@ -1,5 +1,5 @@
 // @flow
-import { default as React } from 'react';
+import React, { forwardRef } from 'react';
 import { ControllerContext } from './Controller';
 import ScrollMagic from './lib/scrollmagic';
 import debugAddIndicators from './lib/debug.addIndicators.js';
@@ -184,6 +184,12 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
     this.scene.destroy();
   }
 
+  refreshScene() {
+    if (this.scene) {
+      this.scene.refresh();
+    }
+  }
+
   setClassToggle(scene, element, classToggle) {
     if (Array.isArray(classToggle) && classToggle.length === 2) {
       scene.setClassToggle(classToggle[0], classToggle[1]);
@@ -250,12 +256,31 @@ class SceneWrapper extends React.PureComponent<SceneProps, {}> {
   }
 }
 
-export const Scene = ({ children, ...props }) => (
-  <ControllerContext.Consumer>
-    {controller => (
-      <SceneWrapper controller={controller} {...props}>
-        {children}
-      </SceneWrapper>
-    )}
-  </ControllerContext.Consumer>
-);
+
+export const Scene = forwardRef(({ children, ...props }, ref) => {
+  const sceneRef = useRef(null); // Ref to capture SceneBase instance
+
+  return (
+    <ControllerContext.Consumer>
+      {controller => (
+        <SceneWrapper
+          controller={controller}
+          {...props}
+          ref={(instance) => {
+            // Forward the ref to the parent component
+            sceneRef.current = instance;
+            if (ref) {
+              if (typeof ref === 'function') {
+                ref(instance);
+              } else if (typeof ref === 'object') {
+                ref.current = instance;
+              }
+            }
+          }}
+        >
+          {children}
+        </SceneWrapper>
+      )}
+    </ControllerContext.Consumer>
+  );
+});
