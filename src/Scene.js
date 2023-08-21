@@ -1,5 +1,5 @@
 // @flow
-import { default as React } from 'react';
+import React, { forwardRef, useRef, useCallback } from 'react';
 import { ControllerContext } from './Controller';
 import ScrollMagic from './lib/scrollmagic';
 import debugAddIndicators from './lib/debug.addIndicators.js';
@@ -184,6 +184,12 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
     this.scene.destroy();
   }
 
+  refreshScene() {
+    if (this.scene) {
+      this.scene.refresh();
+    }
+  }
+
   setClassToggle(scene, element, classToggle) {
     if (Array.isArray(classToggle) && classToggle.length === 2) {
       scene.setClassToggle(classToggle[0], classToggle[1]);
@@ -226,36 +232,38 @@ class SceneBase extends React.PureComponent<SceneBaseProps, SceneBaseState> {
 
     const child = getChild(children, progress, event);
 
-    // TODO: Don't add ref to stateless or stateful components 
-
-    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => this.ref = ref });
-  }
-}
-
-class SceneWrapper extends React.PureComponent<SceneProps, {}> {
-  static displayName = 'Scene';
-
-  render() {
-    if (!this.props.controller) {
-      let { children } = this.props;
-      const progress = 0;
-      const event = 'init';
-
-      return getChild(children, progress, event);
+    // Don't add ref to class components, only to functional components
+    if (typeof child.type !== 'function') {
+      return child;
     }
 
-    return (
-      <SceneBase {...this.props} />
-    );
+    return React.cloneElement(child, { [refOrInnerRef(child)]: ref => ref = this.ref, refresh: this.refreshScene });
   }
 }
 
-export const Scene = ({ children, ...props }) => (
+const SceneWrapper = React.forwardRef(({ controller, refresh, ...props }, ref) => {
+  console.log('SceneWrapper', ref);
+
+  useImperativeHandle(ref, () => {
+    return {
+      refresh() {
+        console.log("here");
+        refresh();
+      }
+    };
+  }, []);
+  
+  return (
+    <SceneBase {...props} ref={ref} controller={controller} /> // Simply forward the ref here
+  );
+});
+
+export const Scene = React.forwardRef(({ children, ...props }, ref) => (
   <ControllerContext.Consumer>
     {controller => (
-      <SceneWrapper controller={controller} {...props}>
+      <SceneWrapper controller={controller} {...props} ref={ref}>
         {children}
       </SceneWrapper>
     )}
   </ControllerContext.Consumer>
-);
+));
